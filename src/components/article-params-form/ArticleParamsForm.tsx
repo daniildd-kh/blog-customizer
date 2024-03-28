@@ -2,7 +2,7 @@ import { ArrowButton } from 'components/arrow-button';
 import { Button } from 'components/button';
 
 import styles from './ArticleParamsForm.module.scss';
-import { useEffect, useRef, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import { Select } from '../select';
 import { RadioGroup } from '../radio-group';
@@ -49,13 +49,13 @@ export const ArticleParamsForm = ({
 		};
 	}, []);
 
-	const handleReset = (event: React.SyntheticEvent) => {
+	const handleReset = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		setDataForm(defaultValues);
 		setFormStates(defaultValues);
 	};
 
-	const handleSubmit = (event: React.SyntheticEvent) => {
+	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		setFormStates(dataForm);
 	};
